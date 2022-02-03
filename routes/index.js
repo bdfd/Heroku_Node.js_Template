@@ -1,17 +1,36 @@
+/*
+ * @Author: BDFD
+ * @Date: 2022-02-03 12:27:46
+ * @LastEditTime: 2022-02-03 13:22:44
+ * @LastEditors: BDFD
+ * @Description:
+ * @FilePath: \Heroku_Node.js_Template\routes\index.js
+ */
 var express = require('express');
 var router = express.Router();
 
+//router address localhost:3000/
+//descriptions: Home Page
+//comments: set up home page layout
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', {page:'Home', menuId:'home'});
+router.get('/', function (req, res, next) {
+	res.render('index', { page: 'Home', menuId: 'home' });
 });
 
-router.get('/about', function(req, res, next) {
-  res.render('about', {page:'About Us', menuId:'about'});
+router.get('/about', function (req, res, next) {
+	res.render('about', { page: 'About Us', menuId: 'about' });
 });
 
-router.get('/contact', function(req, res, next) {
-  res.render('contact', {page:'Contact Us', menuId:'contact'});
+router.get('/contact', function (req, res, next) {
+	res.render('contact', { page: 'Contact Us', menuId: 'contact' });
+});
+
+//router address localhost:3000/test
+//descriptions: Test Page
+//comments: try out for new layout template
+/* GET test page. */
+router.get('/test', function (req, res, next) {
+	res.render('test', { layout: 'layouts/hero_layout' });
 });
 
 module.exports = router;

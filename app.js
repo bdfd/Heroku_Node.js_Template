@@ -1,7 +1,7 @@
 /*
  * @Author: BDFD
  * @Date: 2022-02-03 12:27:46
- * @LastEditTime: 2022-02-03 13:13:53
+ * @LastEditTime: 2022-02-03 13:34:35
  * @LastEditors: BDFD
  * @Description:
  * @FilePath: \Heroku_Node.js_Template\app.js
@@ -23,9 +23,19 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(expressLayouts);
+app.set('layout', 'layouts/layout');
 
 // set path for static assets
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
+app.use(methodOverride('_method'));
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 // routes
 app.use('/', index);
